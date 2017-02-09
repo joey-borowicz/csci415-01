@@ -45,7 +45,7 @@ void sine_serial(float *input, float *output)
 
 // kernel function (CUDA device)
 // TODO: Implement your graphics kernel here. See assignment instructions for method information
-__global__ void parallel_sine(float *input, float *output)
+__global__ void sine_parallel(float *input, float *output)
 {
 	int element = blockIdx.x * blockDim.x + threadIdx.x;
 	
@@ -146,6 +146,7 @@ int main (int argc, char **argv)
 	//kernel
 	long long kernel_start = start_timer();
 	parallel_sine<<<12057, 1024>>>(d_input, d_output);
+	cudaThreadSynchronize();
 	long long kernel_time = stop_timer(kernel_start, "\nGPU Kernel Run Time: ");
 
 	//need to copy memory back to host
