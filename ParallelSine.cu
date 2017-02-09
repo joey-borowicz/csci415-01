@@ -6,7 +6,7 @@
 //
 // Sine implementation derived from slides here: http://15418.courses.cs.cmu.edu/spring2016/lecture/basicarch
 
-//just a sample
+
 // standard imports
 #include <stdio.h>
 #include <math.h>
