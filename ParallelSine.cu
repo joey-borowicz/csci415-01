@@ -145,7 +145,7 @@ int main (int argc, char **argv)
 
 	//kernel
 	long long kernel_start = start_timer();
-	parallel_sine<<<12057, 1024>>>(d_input, d_output);
+	sine_parallel<<<12057, 1024>>>(d_input, d_output);
 	cudaThreadSynchronize();
 	long long kernel_time = stop_timer(kernel_start, "\nGPU Kernel Run Time: ");
 
